@@ -14,7 +14,7 @@ struct DataLoader
         self.publisher = { publisher($0).map { $0 as PhotoPickerData }.eraseToAnyPublisher() }
     }
 
-    static let image = DataLoader(\.imagePublisher)
-    static let video = DataLoader(\.videoPublisher)
-    static let livePhoto = DataLoader(\.livePhotoPublisher)
+    static let image = DataLoader { $0.imagePublisher.map { _PhotoPickerData.image($0) } }
+    static let video = DataLoader { $0.videoPublisher.map { _PhotoPickerData.video($0) } }
+    static let livePhoto = DataLoader { $0.livePhotoPublisher.map { _PhotoPickerData.livePhoto($0) } }
 }

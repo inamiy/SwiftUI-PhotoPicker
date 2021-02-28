@@ -15,20 +15,3 @@ extension PhotoPickerData
     public var video: URL? { nil }
     public var livePhoto: PHLivePhoto? { nil }
 }
-
-// MARK: - Implementations
-
-extension UIImage: PhotoPickerData
-{
-    public var image: UIImage? { self }
-}
-
-extension URL: PhotoPickerData
-{
-    public var video: URL? { self }
-}
-
-extension PHLivePhoto: PhotoPickerData
-{
-    public var livePhoto: PHLivePhoto? { self }
-}
